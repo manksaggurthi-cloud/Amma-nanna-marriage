@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Countdown</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  color: #f5e6c8;
+  text-align: center;
+  background: url('https://wallpapershome.com/images/pages/pic_v/29444.jpg') no-repeat center center/cover;
+}
+
+/* Dark overlay */
+.overlay {
+  background: rgba(0,0,0,0.1);
+  min-height: 100vh;
+  padding: 30px 15px;
+}
+
+h1 {
+  font-size: 28px;
+  letter-spacing: 3px;
+  margin-top: 20px;
+}
+
+.date {
+  font-size: 32px;
+  margin: 15px 0;
+}
+
+.subtitle {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  max-width: 300px;
+  margin: 120px auto;
+}
+
+.box {
+  background: rgba(0,0,0,0.7);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.box span {
+  font-size: 22px;
+  display: block;
+}
+
+.box small {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 36px;
+  margin: 40px 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #e6d3a3;
+  color: black;
+  border-radius: 25px;
+  text-decoration: none;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+</style>
+</head>
+
+<body>
+<div class="overlay">
+
+  
+  <div class="date">June 6 2026</div>
+  <div class="subtitle">HAPPY 23rd WEDDING ANNIVERSARY</div>
+
+  <div class="countdown">
+    <div class="box"><span id="days"></span><small>DAYS</small></div>
+    <div class="box"><span id="hours"></span><small>HOURS</small></div>
+    <div class="box"><span id="minutes"></span><small>MINUTES</small></div>
+    <div class="box"><span id="seconds"></span><small>SECONDS</small></div>
+  </div>
+
+  <div class="title">AMMA AND DADI</div>
+
+
+</div>
+
+<script>
+const targetDate = new Date("June 6, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const m = Math.floor((diff / (1000 * 60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").innerText = d;
+  document.getElementById("hours").innerText = h;
+  document.getElementById("minutes").innerText = m;
+  document.getElementById("seconds").innerText = s;
+}, 1000);
+</script>
+
+</body>
+</html>
